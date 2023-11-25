@@ -1,0 +1,13 @@
+{
+   "port_com": 8000,
+   "host_com": "www.shrike.com",
+   "certfileprefix_com": "www_shrike_com",
+
+   "port_be": 9000,
+   "host_be": "www.shrike.be",
+   "certfileprefix_be": "www_shrike_be",
+
+   "port_shop": 7000,
+   "host_shop": "shop.shrike.be",
+   "certfileprefix_shop": "shop_shrike_be"
+}
