@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="<%= lang %>">
 <head>
    <meta charset="UTF-8">
    <title>Cookies Test</title>
@@ -22,6 +22,8 @@
       </ul>
    </div>
 
+   <div><a href="/lang?lang=en">English</a> | <a href="/lang?lang=nl">Nederlands</a></div>
+
    <div>
       <div>
          <label>Cookie Name:</label>
@@ -42,7 +44,7 @@
    <div 
       id="floater-app"
       class="floater"
-      data-lang="en"
+      data-lang="<%= lang %>"
       data-flag="true"
       data-mode="Testing"
       data-pi="3.141592654">

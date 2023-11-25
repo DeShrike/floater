@@ -15,7 +15,7 @@ function loadIcons() {
 }
 
 async function runApp() {
-  const { createApp, ref, defineProps } = await import(
+  const { createApp, ref, reactive } = await import(
     "https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.8/vue.esm-browser.prod.min.js"
   );
 
@@ -28,20 +28,28 @@ async function runApp() {
   const component = {
 
     setup(props) {
+      console.log("setup");
       let message = ref("Hello Vue 🚀");
       let activeClass = ref("active");
-      let covervisible = ref(false);
+      let coverVisible = ref(false);
       let showModal = ref(false);
       let clickCounter = ref(0);
-      console.log(props);
+      let labels = ref({ floater_text: "xxx"});
+
+      fetch("/labels")
+        .then(response => response.json())
+        .then(data => { labels.value = data; });
+
+      //console.log(props);
 
       return {
         message,
         props,
         clickCounter,
-        covervisible,
+        coverVisible,
         showModal,
-        activeClass
+        activeClass,
+        labels
       };
     },
 
@@ -51,14 +59,18 @@ async function runApp() {
       // document.getElementById("cover").addEventListener("click", () => { floatercheckbox.checked = false; });
     },
 
+    created() {
+      console.log("component created");
+    },
+
     methods: {
       handleButton() {
         this.clickCounter++;
         this.message = "The button was clicked";
       },
-      hidecover() {
+      hideCover() {
         this.showModal = false;
-        this.covervisible = false;
+        this.coverVisible = false;
       },
       openModal() {
         this.showModal = true;
@@ -137,13 +149,13 @@ async function runApp() {
     
 
 
-    <input id="floatercheckbox" v-model="covervisible" type="checkbox" role="button" class="floatercheckbox" />
+    <input id="floatercheckbox" v-model="coverVisible" type="checkbox" role="button" class="floatercheckbox" />
 
     <label id="float" for="floatercheckbox">
-      <i class="material-icons md-24">contact_support</i><span class="my-float">I have a question </span>
+      <i class="material-icons md-24">contact_support</i><span class="my-float">{{ labels.floater_text }}</span>
     </label>
 
-    <div id="cover" @click.self="hidecover">
+    <div id="cover" @click.self="hideCover">
       <div class="floatmenu">
           <div><span @click="openModal">I have a question about my order</span></div>
           <div><span @click="openModal">I would like someone to contact me</span></div>
