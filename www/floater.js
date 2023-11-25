@@ -29,7 +29,9 @@ async function runApp() {
 
     setup(props) {
       let message = ref("Hello Vue 🚀");
+      let activeClass = ref("active");
       let covervisible = ref(false);
+      let showModal = ref(false);
       let clickCounter = ref(0);
       console.log(props);
 
@@ -37,7 +39,9 @@ async function runApp() {
         message,
         props,
         clickCounter,
-        covervisible
+        covervisible,
+        showModal,
+        activeClass
       };
     },
 
@@ -53,7 +57,14 @@ async function runApp() {
         this.message = "The button was clicked";
       },
       hidecover() {
+        this.showModal = false;
         this.covervisible = false;
+      },
+      openModal() {
+        this.showModal = true;
+      },
+      closeModal() {
+        this.showModal = false;
       }
     },
 
@@ -122,7 +133,10 @@ async function runApp() {
       </span>
 
     </div>
+
     
+
+
     <input id="floatercheckbox" v-model="covervisible" type="checkbox" role="button" class="floatercheckbox" />
 
     <label id="float" for="floatercheckbox">
@@ -131,10 +145,30 @@ async function runApp() {
 
     <div id="cover" @click.self="hidecover">
       <div class="floatmenu">
-          <div><span @click="handleButton">I have a question about my order</span></div>
-          <div><span @click="handleButton">I would like someone to contact me</span></div>
+          <div><span @click="openModal">I have a question about my order</span></div>
+          <div><span @click="openModal">I would like someone to contact me</span></div>
       </div>
-    </div>
+
+      <div id="modal" :class="showModal && activeClass">
+        <div class="modal-content">
+          <div class="header">
+            <h2>Please enter this form</h2>
+            <span class="close" @click="closeModal">&times;</span>
+          </div>
+          <div class="body">
+            <h2>Modal Body</h2>
+            <p>
+            This is the body of a modal that I made with pure CSS. There is also some VueJS in use. and there is some HTML.
+            The CSS is the magic ingredient here.
+            </p>
+          </div>
+          <div class="footer">
+          The footer
+          </div>
+        </div>
+      </div>
+
+    </div><!-- #cover -->
     `
 
   };
