@@ -1,185 +1,154 @@
 .floater {
-    background-color: #999;
-}
-
-#floatercheckbox {
-    display: none;
-}
-
-#floaterbutton {
-    position: fixed;
-    /*width: 60px;*/
-    height: 60px;
-    bottom: 40px;
-    right: 40px;
-    background-color: #AA0000;
-    color: #FFF;
-    border-radius: 50px;
-    text-align: center;
-    box-shadow: 10px 10px 10px #999;
-    text-decoration: none;
-    padding-left: 20px;
-    padding-right: 20px;
-    line-height: 60px;
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    z-index: 10;
-    -webkit-transition: background-color 0.5s;
-    transition: background-color 0.5s;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    cursor: pointer;
+  background-color: #CCC;
 }
 
 /* https://fonts.google.com/icons?selected=Material+Icons:settings:&icon.set=Material+Icons&icon.style=Filled */
-
-#floaterbutton .fa-solid {
-    margin-right: 10px;
-    vertical-align: text-bottom;
+#floatermain #floatercheckbox {
+  display: none;
 }
-
-#floaterbutton:hover {
-    background-color: #EE0000;
-    /*box-shadow: 10px 10px 5px #999; */
+#floatermain #floatercheckbox:checked ~ #floaterbutton {
+  background-color: #000044;
+  box-shadow: none;
+  color: #AAA;
 }
-
-#floatercover {
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 5;
-    width: 100%;
-    height: 100%;
-    display: none;
+#floatermain #floatercheckbox:checked ~ #floaterbutton:hover {
+  background-color: #000066;
+  color: #AAA;
 }
-
-#floatercheckbox:checked~#floaterbutton {
-    background-color: #440000;
-    box-shadow: none;
-    color: #555;
+#floatermain #floatercheckbox:checked ~ #floatercover {
+  display: block;
+  opacity: 2;
 }
-
-#floatercheckbox:checked~#floaterbutton:hover {
-    background-color: #660000;
+#floatermain #floatercheckbox:checked ~ .remove-check {
+  display: none;
 }
-
-#floatercheckbox:checked~#floatercover {
-    display: block;
-    opacity: 2;
+#floatermain #floaterbutton {
+  position: fixed;
+  /*width: 60px;*/
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #000099;
+  color: #EEE;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 10px 10px 10px #999;
+  text-decoration: none;
+  padding-left: 20px;
+  padding-right: 20px;
+  line-height: 60px;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  z-index: 10;
+  -webkit-transition: background-color 0.5s;
+  transition: background-color 0.5s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
 }
-
-#floatercheckbox:checked~.remove-check {
-    display: none;
+#floatermain #floaterbutton .fa-solid {
+  margin-right: 10px;
+  vertical-align: text-bottom;
 }
-
-#floatercover .floatmenu {
-    position: fixed;
-    bottom: 110px;
-    right: 40px;
-
-    padding: 10px;
-    /*border: 1px solid black;*/
-    /*height: 200px;*/
-    /*background-color: white;
-    box-shadow: 4px 4px 4px #333;*/
-    text-align: right;
-    max-width: 300px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+#floatermain #floaterbutton:hover {
+  background-color: #0000FF;
+  color: #FFF;
 }
-
-#floatercover .floatmenu span {
-    font-family: Arial, Helvetica, sans-serif;
-    display: block;
-    text-decoration: none;
-    color: #cccccc;
-    font-size: 24px;
-    margin-bottom: 15px;
-    font-weight: bold;
-    cursor: pointer;
+#floatermain #floatercover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  display: none;
 }
-
-#floatercover .floatmenu span:hover {
-    color: #eeeeee;
+#floatermain #floatercover .floatmenu {
+  position: fixed;
+  bottom: 110px;
+  right: 40px;
+  padding: 10px;
+  text-align: right;
+  max-width: 300px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
-
-/*********************************/
-#modal {
-    left: 50%;
-    margin: -250px 0 0 -32%;
-    opacity: 0;
-    position: absolute;
-    top: -50%;
-    visibility: hidden;
-    width: 65%;
-    box-shadow: 3px 3px 7px rgba(0, 0, 0, .25);
-    box-sizing: border-box;
-    transition: all .4s ease-in-out;
-    -moz-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    font-family: Arial, Helvetica, sans-serif;
+#floatermain #floatercover .floatmenu span {
+  font-family: Arial, Helvetica, sans-serif;
+  display: block;
+  text-decoration: none;
+  color: #DDD;
+  font-size: 24px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  cursor: pointer;
 }
-
-#modal .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    margin-top: -26px;
-  }
-
-#modal .close:hover,
-#modal .close:focus {
+#floatermain #floatercover .floatmenu span:hover {
+  color: #FFF;
+}
+#floatermain #modal {
+  left: 50%;
+  margin: -250px 0 0 -32%;
+  opacity: 0;
+  position: absolute;
+  top: -50%;
+  visibility: hidden;
+  width: 65%;
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#floatermain #modal .header {
+  border-bottom: 1px solid #aaa;
+}
+#floatermain #modal .footer {
+  border: none;
+  border-top: 1px solid #aaa;
+}
+#floatermain #modal h2 {
+  margin: 0;
+  color: #222;
+}
+#floatermain #modal .body,
+#floatermain #modal .header,
+#floatermain #modal .footer {
+  padding: 20px;
+  color: #333;
+}
+#floatermain #modal .modal-content {
+  background: #ddd;
+  position: relative;
+  z-index: 20;
+  border-radius: 10px;
+  color: #333;
+}
+#floatermain #modal .body {
+  background: #eee;
+}
+#floatermain #modal:target, #floatermain #modal.active {
+  opacity: 1;
+  top: 50%;
+  visibility: visible;
+}
+#floatermain #modal .close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: -26px;
+}
+#floatermain #modal .close:hover {
   color: black;
   text-decoration: none;
   cursor: pointer;
 }
 
-#modal:target, #modal.active {
-    opacity: 1;
-    top: 50%;
-    visibility: visible;
-}
-
-#modal .header {
-    border-bottom: 1px solid #aaa;
-    /*border-bottom: 1px solid #555;
-    border-radius: 5px 25px 0 0;*/
-}
-
-#modal .footer {
-    border: none;
-    border-top: 1px solid #aaa;
-    /*border-radius: 0 0 35px 5px*/
-}
-
-#modal h2 {
-    margin: 0;
-    color: #222;
-}
-
-#modal .body,
-#modal .header,
-#modal .footer {
-    padding: 20px;
-    color: #333;
-}
-
-#modal .modal-content {
-    background: #ddd;
-    position: relative;
-    z-index: 20;
-    border-radius: 10px;
-    color: #333;
-}
-
-#modal .body {
-    background: #eee;
-}
-
-/*********************************/
+/*# sourceMappingURL=floater.css.map */

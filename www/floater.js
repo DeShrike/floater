@@ -145,7 +145,7 @@ async function runApp() {
     </div>
 
     
-
+    <div id="floatermain">
 
     <input id="floatercheckbox" v-model="coverVisible" type="checkbox" role="button" class="floatercheckbox" />
 
@@ -179,6 +179,7 @@ async function runApp() {
       </div>
 
     </div><!-- #floatercover -->
+    </div><!-- #floatermain -->
     `
 
   };
