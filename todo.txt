@@ -1,0 +1,30 @@
+Use SASS:
+
+   npm install node-sass
+   sass --watch scss/index.scss:public/css/style.css
+
+
+Use TYPESCRIPT:
+
+
+Replace icons css with a better one. Fontawesome maybe ?    DONE
+
+
+Complete the form.
+
+
+Add more language labels.
+
+
+Rename #cover to something better.           DONE
+
+
+Hide the 2 links if modal is visible.        DONE
+
+
+Move labels json file to subfolder. (i18n ?) DONE
+
+
+Convert floater.js to a function.
+
+

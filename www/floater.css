@@ -6,7 +6,7 @@
     display: none;
 }
 
-#float {
+#floaterbutton {
     position: fixed;
     /*width: 60px;*/
     height: 60px;
@@ -35,21 +35,17 @@
 
 /* https://fonts.google.com/icons?selected=Material+Icons:settings:&icon.set=Material+Icons&icon.style=Filled */
 
-#float .material-icons {
+#floaterbutton .fa-solid {
     margin-right: 10px;
     vertical-align: text-bottom;
 }
 
-#float:hover {
+#floaterbutton:hover {
     background-color: #EE0000;
     /*box-shadow: 10px 10px 5px #999; */
 }
 
-.my-float {
-    margin-top: 22px;
-}
-
-#cover {
+#floatercover {
     position: fixed;
     top: 0;
     left: 0;
@@ -60,17 +56,17 @@
     display: none;
 }
 
-#floatercheckbox:checked~#float {
+#floatercheckbox:checked~#floaterbutton {
     background-color: #440000;
     box-shadow: none;
     color: #555;
 }
 
-#floatercheckbox:checked~#float:hover {
+#floatercheckbox:checked~#floaterbutton:hover {
     background-color: #660000;
 }
 
-#floatercheckbox:checked~#cover {
+#floatercheckbox:checked~#floatercover {
     display: block;
     opacity: 2;
 }
@@ -79,7 +75,7 @@
     display: none;
 }
 
-#cover .floatmenu {
+#floatercover .floatmenu {
     position: fixed;
     bottom: 110px;
     right: 40px;
@@ -90,14 +86,14 @@
     /*background-color: white;
     box-shadow: 4px 4px 4px #333;*/
     text-align: right;
-    max-width: 250px;
+    max-width: 300px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
 }
 
-#cover .floatmenu span {
+#floatercover .floatmenu span {
     font-family: Arial, Helvetica, sans-serif;
     display: block;
     text-decoration: none;
@@ -108,7 +104,7 @@
     cursor: pointer;
 }
 
-#cover .floatmenu span:hover {
+#floatercover .floatmenu span:hover {
     color: #eeeeee;
 }
 

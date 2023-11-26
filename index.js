@@ -5,8 +5,8 @@ const http = require("http");
 const https = require("https");
 const fs = require("fs");
 
-var labels_en = require('./labels_en.json');
-var labels_nl = require('./labels_nl.json');
+var labels_en = require('./i18n/labels_en.json');
+var labels_nl = require('./i18n/labels_nl.json');
 
 var CONFIG = require("./config.json");
 const DEFAULT_LANGUAGE = "en";

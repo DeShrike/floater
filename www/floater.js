@@ -8,7 +8,7 @@ function loadStyle() {
 
 function loadIcons() {
   var link = document.createElement("link");
-  link.href = "https://fonts.googleapis.com/icon?family=Material+Icons";
+  link.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css";
   link.type = "text/css";
   link.rel = "stylesheet";
   document.getElementsByTagName("head")[0].appendChild(link);
@@ -32,13 +32,13 @@ async function runApp() {
       let message = ref("Hello Vue 🚀");
       let activeClass = ref("active");
       let coverVisible = ref(false);
-      let showModal = ref(false);
+      let modalVisible = ref(false);
       let clickCounter = ref(0);
-      let labels = ref({ floater_text: "xxx"});
+      let labels = ref({ floater_text: "xxx", "question1": "", "question2":"" });
 
       fetch("/labels")
         .then(response => response.json())
-        .then(data => { labels.value = data; });
+        .then(data => { labels.value = data; console.log(labels.value); });
 
       //console.log(props);
 
@@ -47,7 +47,7 @@ async function runApp() {
         props,
         clickCounter,
         coverVisible,
-        showModal,
+        modalVisible,
         activeClass,
         labels
       };
@@ -55,8 +55,6 @@ async function runApp() {
 
     mounted() {
       console.log("component mounted");
-      // const floatercheckbox = document.getElementById("floatercheckbox");
-      // document.getElementById("cover").addEventListener("click", () => { floatercheckbox.checked = false; });
     },
 
     created() {
@@ -69,14 +67,14 @@ async function runApp() {
         this.message = "The button was clicked";
       },
       hideCover() {
-        this.showModal = false;
+        this.modalVisible = false;
         this.coverVisible = false;
       },
       openModal() {
-        this.showModal = true;
+        this.modalVisible = true;
       },
       closeModal() {
-        this.showModal = false;
+        this.modalVisible = false;
       }
     },
 
@@ -151,17 +149,17 @@ async function runApp() {
 
     <input id="floatercheckbox" v-model="coverVisible" type="checkbox" role="button" class="floatercheckbox" />
 
-    <label id="float" for="floatercheckbox">
-      <i class="material-icons md-24">contact_support</i><span class="my-float">{{ labels.floater_text }}</span>
+    <label id="floaterbutton" for="floatercheckbox" v-show="!modalVisible">
+      <i class="fa-solid fa-circle-question"></i><span class="my-float">{{ labels.floater_text }}</span>
     </label>
 
-    <div id="cover" @click.self="hideCover">
-      <div class="floatmenu">
-          <div><span @click="openModal">I have a question about my order</span></div>
-          <div><span @click="openModal">I would like someone to contact me</span></div>
+    <div id="floatercover" @click.self="hideCover">
+      <div class="floatmenu" v-show="!modalVisible">
+          <div><span @click="openModal">{{ labels.question1 }}</span></div>
+          <div><span @click="openModal">{{ labels.question2 }}</span></div>
       </div>
 
-      <div id="modal" :class="showModal && activeClass">
+      <div id="modal" :class="modalVisible && activeClass">
         <div class="modal-content">
           <div class="header">
             <h2>Please enter this form</h2>
@@ -180,7 +178,7 @@ async function runApp() {
         </div>
       </div>
 
-    </div><!-- #cover -->
+    </div><!-- #floatercover -->
     `
 
   };
