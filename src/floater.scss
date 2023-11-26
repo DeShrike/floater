@@ -1,17 +1,17 @@
+@use 'sass:color';
+
 .floater {
     background-color: #CCC;
 }
 
-/* https://fonts.google.com/icons?selected=Material+Icons:settings:&icon.set=Material+Icons&icon.style=Filled */
-
-$fab-background: #000099;
-$fab-background-hover: #0000FF;
+$fab-background: #990000;
+$fab-background-hover: lighten($fab-background, 30%);
 
 $fab-color: #EEE;
 $fab-color-hover: #FFF;
 
-$fab-background-active: #000044;
-$fab-background-active-hover: #000066;
+$fab-background-active: #440000;
+$fab-background-active-hover: lighten($fab-background-active, 10%);
 
 $fab-color-active: #AAA;
 $fab-color-active-hover: #AAA;
@@ -20,10 +20,12 @@ $fab-menu-color: #DDD;
 $fab-menu-color-hover: #FFF;
 
 #floatermain {
+    font-family: Arial, Helvetica, sans-serif;
+
     #floatercheckbox {
         display: none;
 
-        &:checked~#floaterbutton {
+        &:checked ~ #floaterbutton {
             background-color: $fab-background-active;
             box-shadow: none;
             color: $fab-color-active;
@@ -34,19 +36,18 @@ $fab-menu-color-hover: #FFF;
             }
         }
 
-        &:checked~#floatercover {
+        &:checked ~ #floatercover {
             display: block;
             opacity: 2;
         }
 
-        &:checked~.remove-check {
+        &:checked ~ .remove-check {
             display: none;
         }
     }
 
     #floaterbutton {
         position: fixed;
-        /*width: 60px;*/
         height: 60px;
         bottom: 40px;
         right: 40px;
@@ -60,7 +61,6 @@ $fab-menu-color-hover: #FFF;
         padding-right: 20px;
         line-height: 60px;
         font-size: 20px;
-        font-family: Arial, Helvetica, sans-serif;
         z-index: 10;
         -webkit-transition: background-color 0.5s;
         transition: background-color 0.5s;
@@ -105,7 +105,6 @@ $fab-menu-color-hover: #FFF;
             user-select: none;
 
             span {
-                font-family: Arial, Helvetica, sans-serif;
                 display: block;
                 text-decoration: none;
                 color: $fab-menu-color;
@@ -134,7 +133,6 @@ $fab-menu-color-hover: #FFF;
         transition: all .4s ease-in-out;
         -moz-transition: all .4s ease-in-out;
         -webkit-transition: all .4s ease-in-out;
-        font-family: Arial, Helvetica, sans-serif;
 
         .header {
             border-bottom: 1px solid #aaa;

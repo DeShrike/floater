@@ -82,6 +82,7 @@ const app = express();
 app.set("view engine", "ejs");
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "www")));
+app.use(express.static(path.join(__dirname, "dist")));
 
 app.use((req, res, next) => {
    console.info(`${req.method} ${req.originalUrl}`);

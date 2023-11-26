@@ -1,0 +1,38 @@
+{
+    "compilerOptions": {
+      "target": "es2020",
+      "module": "es2020",
+      "strict": true,
+      "jsx": "preserve",
+      "importHelpers": true,
+      "moduleResolution":"Node",
+      "experimentalDecorators": true,
+      "skipLibCheck": true,
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "sourceMap": true,
+      "baseUrl": ".",
+      "noEmitHelpers": true,
+      "removeComments": true,
+      "types": [
+        "vue-types"
+      ],
+      "paths": {
+        "@/*": [
+          "src/*"
+        ]
+      },
+      "lib": [
+        "esnext",
+        "dom",
+        "dom.iterable",
+        "es2015.promise",
+      ]
+    },
+    "files": ["./src/fl.ts"],
+    "exclude": [
+      "node_modules",
+      "www",
+      "."
+    ]
+}
